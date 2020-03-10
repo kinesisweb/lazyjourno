@@ -1,0 +1,1 @@
+[21-Dec-2019 23:20:26 CST6CDT] PHP Fatal error:  Class 'getid3_handler' not found in /home/lazyjour/public_html/wp-includes/ID3/module.audio.ac3.php on line 18

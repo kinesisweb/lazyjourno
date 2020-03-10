@@ -1,0 +1,86 @@
+footer.lazyjourno-footer {
+	max-width: 100%;
+	background-color: colour(box-med);
+	padding-bottom: 20px;
+	color: colour(text-light);
+
+	.menu-item a {
+		@include ani-underline;
+	}
+
+	.footer-row {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.menu-footer-menu-container {
+		width: 100%;
+		margin-top: 1rem;
+		font-size: 1rem;
+		text-transform: uppercase;
+
+		@include tablet {
+			font-size: 1.3rem;
+		}
+	}
+
+	a {
+		color: colour(text-light);
+	}
+
+	.social-links {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.social-links ol {
+		list-style-type: none;
+		display: flex;
+		flex-flow: row;
+
+		li {
+			font-size: 2rem;
+		    border-radius: 30px;
+		    width: 50px;
+		    height: 50px;
+		    background: red;
+		    display: flex;
+		    justify-content: center;
+		    align-items: center;
+
+		    i {
+		    	color: colour(box-med);
+		    	@include transition(color $fade-trans ease-out);
+		    }
+
+		    i:hover {
+		    	color: colour(text-light);
+		    }
+		}
+
+		li:not(:last-child) {
+			margin-right: 1rem;
+		}
+	}
+
+	#menu-footer-menu {
+		list-style-type: none;
+		width: 100%;
+		justify-content: space-evenly;
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 0 1rem 0;
+		padding: 0;
+
+		li {
+			display: inline-block;
+			@include subheading;
+		}
+	}
+
+	#copyright-info {
+		color: colour(background);
+	}
+}

@@ -1,0 +1,8 @@
+.sidebar-search {
+	background-color: colour(box-light);
+
+	h4 {
+		@include subheading;
+		color: colour(text-light);
+	}
+}

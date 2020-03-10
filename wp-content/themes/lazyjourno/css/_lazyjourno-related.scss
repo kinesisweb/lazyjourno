@@ -1,0 +1,32 @@
+div#jp-relatedposts {
+
+	margin-top: 0 !important;
+
+	div.jp-relatedposts-post {
+		position: relative;
+	}
+
+	h4.jp-relatedposts-post-title {
+		position: absolute;
+		bottom: 0;
+		width: calc(100% - 20px);
+		padding: 0.5rem 0;
+		background-color: colour(box-dark);
+		text-align: center;
+
+		a {
+			color: colour(text-light);
+			@include subheading;
+			font-size: 1rem;
+			text-transform: uppercase !important;
+
+			&:hover {
+				text-decoration: none !important;
+			}
+		}
+	}
+}
+
+#jp-relatedposts .jp-relatedposts-items .jp-relatedposts-post:hover .jp-relatedposts-post-title a { 
+	text-decoration: none !important;
+}

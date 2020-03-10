@@ -1,0 +1,517 @@
+@import "lazyjourno-mixins";
+@import "lazyjourno-functions";
+@import "lazyjourno-type";
+@import "lazyjourno-vars";
+@import "lazyjourno-truthiness";
+@import "lazyjourno-footer";
+@import "lazyjourno-related";
+@import "lazyjourno-navbar";
+@import "lazyjourno-lightbox";
+@import "lazyjourno-sidebar";
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+	&:hover {
+		@extend a;
+	}
+}
+
+ .blog-post-title {
+ 	@include heading(colour(text));
+ 	text-transform: uppercase;
+ }
+
+ .single-article-body {
+ 	margin-bottom: 2rem;
+ 	background-color: colour(text-light);
+ }
+
+.container {
+	min-width: 320px;
+}
+
+.comments-container a {
+	color: colour(background);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+div.article-content {
+	p img.aligncenter {
+		@include transform(translateX(-50%));
+		margin: 1rem 0 1rem 50%;
+	}
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	@include type;
+	overflow-x: hidden;
+	color: colour(text); 
+	background: colour(background);
+}
+
+.grecaptcha-badge { opacity:0 !important;}
+
+body.is-fixed {
+  position: fixed;
+  max-width: 100%;
+}
+
+header {
+	margin: 0.5rem 0 0.5rem 0;
+
+
+	img {
+		width: 90%;
+		height: auto;
+	}
+
+	@include tablet {
+		#site-logo img {
+			width: 240px;
+		}
+
+	}
+
+	.social-links {
+		display: flex;
+    	justify-content: flex-end;
+    	flex-flow: row;
+	}
+
+	.social-links a {
+		background-color: colour(accent);
+		border-radius: 30px;
+		width: 35px;
+		height: 35px;
+		font-size: 1rem;
+		color: colour(background);
+		display: inline-flex;
+    	align-items: center;
+    	justify-content: center;
+    	@include transition(background-color $fade-trans ease-out);
+
+    	&:hover {
+    		background-color: lighten(colour(accent),15%);
+    	}
+	}
+
+	@include mobile {
+		.social-links a {
+			width: 40px;
+			height: 40px;
+		}
+	}
+
+	@include tablet {
+		.social-links a {
+			width: 50px;
+			height: 50px;
+			font-size: 1.4rem;
+		}
+	}
+
+	.social-links a:first-child {
+		margin-right: 1rem;
+	}
+}
+
+#headline-article {
+	padding-bottom: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&:hover #headline-caption:before {
+		opacity: 1;
+	}
+
+	&:hover #headline-caption {
+		@include transform(scale(1.03,1.02));
+	}
+
+	#headline-caption-container {
+		@include absolute-cover;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	#headline-caption {
+		max-width: 90%;
+		max-height: 90%;
+		font-size: 1.5rem;	
+		position: relative;
+		z-index: 1;
+		padding: 5%;
+		@include heading(colour(background));
+		text-align: center;
+		@include transition(transform $fade-trans ease-out);
+		text-transform: uppercase;
+	}
+
+	@include mobile() {
+		padding-bottom: 80%;
+
+		#headline-caption {
+		    max-width: 80%;
+    	}
+	}
+
+	@include laptop() {
+		padding-bottom: 50%;
+
+		#headline-caption {
+			max-width: 70%;
+			max-height: 70%;
+			font-size: 2.5rem;
+		}
+	}
+
+	@include desktop() {
+		padding-bottom: 40%;
+	}
+
+	#headline-caption:before {
+		@include absolute-cover;
+		content: " ";
+		z-index: -1;
+		opacity: 0.8;
+		background-color: colour(box-med);
+		@include transition(opacity $fade-trans ease-out);
+	}
+}
+
+.block-link {
+	width: 100%;
+}
+
+div.stickied-posts {
+
+	padding-bottom: 5px;
+
+	.caption-container {
+		@include absolute-cover;
+		display: flex;
+		justify-content: center;
+		align-items: flex-end;
+	}
+
+	div.stickied-post-container {
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding-bottom: 100%;
+
+	&:hover .stickied-post-caption {
+		@include transform(scale(1.05,1.03));
+	}
+	}
+
+	> div {
+		padding: 5px 0;
+
+		@include mobile {
+			padding: 5px 5px 0;
+		}
+	}
+
+	> div:first-child {
+		padding-left: 0;
+	}
+
+	> div:nth-child(2) .stickied-post-container {
+		@include mobile {
+			padding-bottom: calc(100% + 5px);
+		}
+	}
+
+	> div:last-child {
+		padding-right: 0;
+	}
+}
+
+div.stickied-post-caption {
+		margin-bottom: 20px;
+		max-width: 75%;
+		max-height: 50%;
+		z-index: 1;
+		padding: 2px 5px;
+		color: colour(accent);
+		position: relative;
+		@include heading(colour(accent));
+		text-align: center;
+		font-size: 1.2rem;
+		text-transform: uppercase;
+		@include transition(transform $fade-trans ease-out);
+
+	@include mobile() {
+		font-size: 0.6rem;
+	}
+
+	@include tablet() {
+		font-size: 1.2rem;
+	}
+
+
+	&:before {
+		content: " ";
+		@include absolute-cover;
+		background-color: colour(background);	
+		z-index: -1;
+	}
+
+}
+
+#horizontal-subscribe {
+	padding: 5px 5px 10px 5px;
+
+	.subscribe-text {
+		letter-spacing: 0.2rem;
+	}
+}
+
+#vertical-subscribe {
+	padding: 5px;
+
+	div:first-child {
+		text-align: center;
+		padding: 5px;
+	}
+
+	.subscribe-text {
+		line-height: 1rem;
+	}
+
+}
+
+#horizontal-subscribe, #vertical-subscribe {
+		background-color: colour(text-light);
+
+		@include placeholder {
+    		color: darken(colour(background),5%);
+		}
+
+	input[type=text] {
+		border-color: colour(accent);
+		border-width: 4px;
+		border-style: solid;
+		width: 100%;
+		padding: 0.1rem 1rem;
+		font-size: 1.4rem;
+		background-color: colour(text-light);
+		color: colour(text);
+
+		&:focus {
+			outline: 0px solid colour(accent);
+			background-color: lighten(colour(accent), 37%);
+		}
+	}
+
+	input[type=text]:focus::placeholder {
+		color: colour(background);
+	}
+
+	button {
+		background-color: colour(accent);
+		@include heading(colour(background));
+		width: 100%;
+		text-transform: uppercase;
+		font-size: 1.4rem;
+		color: colour(text-light);
+		padding: 0.1rem 0.2rem;
+		border: 4px solid colour(accent);
+		cursor: pointer;
+		@include transition(all $fade-trans ease-out);
+
+		&:hover, &:focus {
+			outline: 0px solid lighten(colour(accent), 20%);
+			background-color: lighten(colour(accent), 20%);
+			border-color: lighten(colour(accent), 20%);
+		}
+	}
+
+	.subscribe-text {
+		@include heading(colour(accent));
+		text-transform: uppercase;
+		font-size: 1.1rem;
+
+		@include mobile {
+			font-size: 1.3rem;
+		}
+	}
+
+	.vertical-subscribe-box {
+		margin-bottom: 1rem;
+		padding: 5px;
+	}
+
+	.horizontal-subscribe-box {
+		margin-bottom: 1rem;
+
+		@include laptop {
+			margin-bottom: 0;
+		}
+	}
+}
+
+#desktop-sponsor {
+	display: none;
+}
+
+#lazyjourno-sidebar {
+	padding-right: 0;
+}
+
+#sponsor-sidebar {
+	background-color: colour(box-med);
+	@include heading(colour(text-light));
+	text-transform: uppercase;
+	font-size: 1.2rem;
+	margin-bottom: 1rem;
+
+	.sponsor-bookend {
+		padding: 1rem 0;
+	}
+
+	#sponsor-logo {
+	    width: 100%;
+	    background-color: colour(text-light);
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	}
+}
+
+#mobile-sponsor {
+	margin-bottom: -1rem;
+
+	#sponsor-logo {
+		padding: 10px;
+	}
+}
+
+@include tablet {
+	#mobile-sponsor {
+		display: none;
+	}
+
+	#desktop-sponsor {
+		display: block;
+	}
+
+	#sponsor-logo {
+		border-radius: 50%;
+		height: 23vh;
+	}
+}
+
+.loop-thumbnail {
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 29vh;
+}
+
+.loop-article-container {
+	background-color: colour(text-light);
+	padding: 1rem 0;
+}
+
+.article-title {
+	color: colour(box-dark);
+	@include subheading;
+	text-transform: uppercase;
+	padding-top: 0.2rem;
+	font-size: 1.4rem;
+
+	a {
+		color: colour(box-dark);
+	}
+}
+
+.article-permalink {
+	@include subheading;
+	color: colour(box-dark);
+	@include ani-underline(colour(box-dark));
+
+	&:hover {
+		color: colour(box-dark);
+		text-decoration: none;
+	}
+}
+
+.article-container {
+	background-color: colour(text-light);
+	align-content: space-between;
+    height: 100%;
+}
+
+.comments-container {
+	margin-top: 0;
+	background-color: colour(box-dark);
+	color: colour(background);
+	padding:0.5rem 2rem;
+	margin: 0 0 1rem 0;
+	@include subheading;
+}
+
+.comments-link {
+	@include ani-underline;
+}
+
+.comment-form-comment {
+	textarea {
+		max-width: 100%;
+	}
+}
+
+div.mejs-container.wp-audio-shortcode.mejs-audio {
+	max-width: 250px !important;
+}
+
+.page-number {
+	min-width: 30px;
+	min-height: 30px;
+	background-color: colour(box-dark);
+	color: colour(text-light);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 1rem;
+	font-weight: bold;
+	margin-left: -15px;
+}
+
+.pagination-link {
+	padding: 20px 50px;
+    background-color: #0d4f32;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    border-radius: 2px;
+    font-size: 1.2rem;
+
+    a {
+   		@include ani-underline;
+   		@include heading(colour(text-light));
+    }
+ }

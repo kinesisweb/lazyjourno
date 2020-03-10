@@ -1,0 +1,8 @@
+
+Gavin selects the post category 'Prediction'
+
+Is given a custom field for "Journalist", "Publication", and "Prediction"
+
+Journalist and Publication need to be either tags or taxonomies
+
+Taxonomy: "Prediction Status" -> "Pending", "Correct", "Wrong";

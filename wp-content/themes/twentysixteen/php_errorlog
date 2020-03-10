@@ -1,0 +1,12 @@
+[20-Oct-2019 10:06:27 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/lazyjour/public_html/wp-content/themes/twentysixteen/404.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/lazyjour/public_html/wp-content/themes/twentysixteen/404.php on line 10
+[19-Dec-2019 10:45:27 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/lazyjour/public_html/wp-content/themes/twentysixteen/404.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/lazyjour/public_html/wp-content/themes/twentysixteen/404.php on line 10
+[19-Dec-2019 10:45:36 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/lazyjour/public_html/wp-content/themes/twentysixteen/404.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/lazyjour/public_html/wp-content/themes/twentysixteen/404.php on line 10

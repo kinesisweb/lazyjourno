@@ -1,0 +1,130 @@
+$extra-large: 1200px; //desktop
+$large: 992px; //laptop
+$medium: 768px; //tablet
+$small: 576px; //mobile
+$tiny: 0px;
+
+@mixin transform($prop) {
+	-webkit-transform: $prop;
+  		 -o-transform: $prop;
+  		-ms-transform: $prop;
+  	   -moz-transform: $prop;
+  			transform: $prop;
+}
+
+@mixin transition($prop) {
+	-webkit-transition: $prop;
+  		 -o-transition: $prop;
+  		-ms-transition: $prop;
+  	   -moz-transition: $prop;
+  			transition: $prop;
+}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};      
+}
+
+@mixin keyframes($animationName) {
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+    @-moz-keyframes #{$animationName} {
+        @content;
+    }
+    @-o-keyframes #{$animationName} {
+        @content;
+    }
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+
+@mixin placeholder {
+  ::-webkit-input-placeholder {@content}
+  :-moz-placeholder           {@content}
+  ::-moz-placeholder          {@content}
+  :-ms-input-placeholder      {@content}  
+  ::placeholder {@content};
+}
+
+@mixin desktop() {
+	@media(min-width: #{$extra-large}) {
+		@content;
+	}
+}
+
+@mixin laptop() {
+	@media(min-width: #{$large}) {
+		@content;
+	}
+}
+
+@mixin tablet {
+	@media(min-width: #{$medium}) {
+		@content;
+	}
+}
+
+@mixin mobile {
+	@media(min-width: #{$small}) {
+		@content;
+	}
+}
+
+@mixin tiny {
+	@media(min-width: #{$small}) {
+		@content;
+	}
+}
+
+ @mixin heading($col) {
+ 	font-family: $heading, sans-serif;
+ 	color: $col;
+ }
+
+ @mixin subheading() {
+ 	font-family: $subheading, sans-serif !important;
+ 	font-weight: bold !important;
+ }
+
+ @mixin type() {
+ 	font-family: $type, sans-serif;
+ }
+
+@mixin absolute-cover() {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+}
+
+@mixin ani-underline($line-colour: colour(text-light)) {
+		cursor: pointer;
+		position: relative;
+  		text-decoration: none;
+
+  		&:before {
+  			content: "";
+  			position: absolute;
+			width: 100%;
+			height: 2px;
+			bottom: 0;
+			left: 0;
+			background-color: $line-colour;
+			visibility: hidden;
+			@include transform(scaleX(0));
+			@include transition(all $fade-trans ease-in-out 0s);
+  		}
+
+  		&:hover:before {
+			visibility: visible;
+			@include transform(scaleX(1));
+		}
+}

@@ -1,0 +1,90 @@
+.search-wrap {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  padding-right: 1rem;
+  margin-bottom: 1rem;
+}
+
+	nav#navbar {
+	background-color: colour(box-med);
+	color: colour(background);
+	margin: 0;
+	width: 100%;
+	padding: 0 1rem;
+
+	.navbar-toggler-icon {
+		color: colour(text-light);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		i {
+			font-size: 1.7rem;
+		}
+	}
+
+	#search-input {
+		&:focus {
+			outline: 4px solid colour(accent);
+		}
+	}
+
+	.nav-item {
+		@include subheading;
+
+		&:hover {
+			background: rgba(255,255,255,0.1);
+		}
+
+		a:not(.dropdown-item) {
+			color: colour(text-light);
+			@include transition(text-shadow $fade-trans ease-out);
+		}
+	}
+
+	.dropdown-menu a:hover {
+	  background-color: colour(accent);
+	  color: colour(text-light);
+	}
+
+	.dropdown-menu a {
+	  @include transition(all $fade-trans ease-out);
+	}
+
+	.lazyjourno-search input {
+	  opacity: 0.5;
+	  padding: 0.35rem 1rem;
+	}
+
+	.lazyjourno-search-inputs {
+	  	margin-right: 1rem;
+	  	overflow: hidden;
+	   	@include transition(max-width 200ms ease-out);
+	}
+
+	.lazyjourno-search-inputs.search-inputs-active {
+	  max-width: 205px;
+	}
+
+	@include tablet {
+		.lazyjourno-search-inputs {
+			max-width: 0px;
+		}
+
+		.search-inputs-icon {
+	  		cursor: pointer;
+	  		&:hover {
+	  			text-shadow: 0 0 3px colour(text-light);
+	  		}
+		}
+
+		.search-wrap {
+			margin-bottom: 0;
+		}
+
+		#collapsibleNavbar {
+			height: unset !important;
+		}
+	}
+}

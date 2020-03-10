@@ -1,0 +1,40 @@
+.es_caption {
+	padding-bottom: 1em;
+	padding-right: 0.5em;
+}
+.es_msg {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	color: #F00;
+	font-size: 0.8rem;
+}
+.es_textbox {
+	padding-bottom: 10px;
+}
+.es_button {
+	padding-top: 10px;
+	padding-bottom: 5px;
+	text-align: center;
+}
+.es_textbox_class {
+	width: 200px;
+}
+.es_textbox_button {
+	width: 130px;
+}
+.es_lablebox {
+	padding-bottom: 3px;
+	width: 100%;
+}
+.es_form_success .es_msg{
+	color:#008600;
+}
+.es_form_container {
+	padding: 20px;
+	margin-top: 2rem;
+}
+.gdpr_message span {
+	font-size: 0.8rem;
+    line-height: 0.9rem;
+    display: inline-block;
+}
